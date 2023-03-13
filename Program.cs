@@ -10,22 +10,25 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //В массиве хранятся сведения о количестве осадков, выпавших за каждый день января(использовать заполнение случайным образом целыми числами в диапазоне от 5 до 60 мм).Определить общее количество осадков за январь.
+            //Массив предназначен для хранения значений весов двадцати человек. С помощью датчика случайных чисел заполнить массив вещественными значениями, лежащими в диапазоне от 50 до 100 включительно.Определить средний вес.
 
-            int[] array = new int[31];
-            Random random = new Random();
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = random.Next(5, 60);
-                Console.WriteLine($"array[{i}]={array[i]}");
-            }
-            int summ = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                summ += array [i];
-            }
-            Console.WriteLine($"Общее кол-во осадков={summ}");
-            Console.Read(); 
+            
+                double[] weights = new double[20];
+                double sum = 0;
+
+                Random rnd = new Random();
+
+                for (int i = 0; i < weights.Length; i++)
+                {
+                    weights[i] = rnd.NextDouble() * 50 + 50;
+                    sum += weights[i];
+                }
+
+                double average = sum / weights.Length;
+
+                Console.WriteLine($"Средний вес: {average:f2} кг");
+
+                Console.Read(); 
         }
     }
 }
