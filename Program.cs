@@ -10,24 +10,20 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //Массив предназначен для хранения значений весов двадцати человек. С помощью датчика случайных чисел заполнить массив вещественными значениями, лежащими в диапазоне от 50 до 100 включительно.Определить средний вес.
+            // Заполнить одномерный массив (с использованием явной инициализации). Подсчитать количество отрицательных элементов одномерного массива.
 
-            
-                double[] weights = new double[20];
-                double sum = 0;
+                int[] arr = { -37, 0, 50, 46, 34, 46, -4, 13 };
+                int count = 0;
 
-                Random rnd = new Random();
-
-                for (int i = 0; i < weights.Length; i++)
+                for (int i = 0; i < arr.Length; i++)
                 {
-                    weights[i] = rnd.NextDouble() * 50 + 50;
-                    sum += weights[i];
+                    if (arr[i] < 0)
+                    {
+                        count++;
+                    }
                 }
 
-                double average = sum / weights.Length;
-
-                Console.WriteLine($"Средний вес: {average:f2} кг");
-
+                Console.WriteLine($"Количество отрицательных элементов: {count}");
                 Console.Read(); 
         }
     }
